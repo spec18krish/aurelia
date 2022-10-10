@@ -1,0 +1,22 @@
+<template>
+  <require from="./formatStringValueConverter"></require>
+  <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css" /> 
+  <require from="./textbox/textbox"></require>
+  <h1>${message}</h1>  
+  
+  <form>
+    <div class="form-group" validation-errors.bind="firstNameErrors"
+          class.bind="firstNameErrors.length ? 'has-error' : ''">
+      <label for="firstName">First Name</label>       
+      <textbox  placeholder="First Name" value.bind="formObj.firstName | formatString & validate"></textbox>
+    </div>
+  
+    <div class="form-group" validation-errors.bind="lastNameErrors"
+          class.bind="lastNameErrors.length ? 'has-error' : ''">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName"
+              placeholder="Last Name"
+            value.bind="formObj.lastName & validate">     
+    </div>
+  </form>
+</template>
